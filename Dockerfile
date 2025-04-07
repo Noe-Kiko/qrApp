@@ -6,7 +6,7 @@
 
 # Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
 
-FROM python:3.9.1-slim as base
+FROM python:3.9.1-slim AS base
 
 COPY application/ /application/
 COPY qrApp.py /application/
@@ -15,9 +15,9 @@ RUN ls -la /application
 
 COPY requirements.txt /application/
 
-RUN RUN pip install -r /application/requirements.txt
+RUN pip install -r /application/requirements.txt
 
 WORKDIR /
 
 # Run the application.
-CMD ["python", "-m", "qrApp", "--host=0.0.0.0"]
+CMD ["python", "/application/qrApp.py"]
